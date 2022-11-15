@@ -81,6 +81,7 @@ public class BadIOGUI {
             public void actionPerformed(final ActionEvent event) {
                 System.out.print("Numero Letto:"); // NOPMD
                 try {
+                    //Senza questo metodo dovrei gestire eccezioni e chiusura stream e file
                    final List<String> lista;
                    lista = Files.readAllLines(new File(PATH).toPath(), StandardCharsets.UTF_8);
                    System.out.println(lista.toString()); //NOPMD
