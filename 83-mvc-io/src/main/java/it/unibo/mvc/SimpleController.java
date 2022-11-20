@@ -15,8 +15,7 @@ public final class SimpleController implements Controller {
 
     @Override
     public void setNextStringtoPrint(final String stringa) {
-            Objects.requireNonNull(stringa);
-            this.nextString=stringa;
+        this.nextString = Objects.requireNonNull(stringa);
     }
 
     @Override
@@ -30,9 +29,12 @@ public final class SimpleController implements Controller {
     }
 
     @Override
-    public void printCurrentString() {
-        System.out.println(nextString); //NOPMD
-        lista.add(nextString);
+    public void printCurrentString() throws IllegalStateException {
+        if(this.nextString == null) { 
+            throw  new IllegalStateException();
+        }
+        System.out.println(this.nextString); //NOPMD
+        lista.add(this.nextString);
     }
 
 }
