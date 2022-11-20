@@ -57,7 +57,7 @@ public final class SimpleGUIWithFileChooser {
                     controller.setFile(chooser.getSelectedFile());
                     browsePath.setText(controller.getPath());
                 } else {
-                   // JOptionPane.showMessageDialog(chooser, arg0, titolo, 0);
+                   JOptionPane.showMessageDialog(null, "Errore nella selezione del file");
                 }
             }});
 
