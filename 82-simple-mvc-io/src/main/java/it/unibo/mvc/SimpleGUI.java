@@ -17,8 +17,8 @@ import java.awt.Dimension;
  */
 public final class SimpleGUI {
 
-    final static String TITLE = "SimpleGUI";
-    private final JFrame frame = new JFrame(TITLE);
+    private final String title = "SimpleGUI";
+    private final JFrame frame = new JFrame(title);
 
     private SimpleGUI(final Controller controller) {
         final JPanel p1 = new JPanel();
@@ -31,27 +31,28 @@ public final class SimpleGUI {
         p1.add(text, BorderLayout.CENTER);
         frame.setContentPane(p1);
 
-        button.addActionListener(new ActionListener(){
+        button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 controller.saveOnFile(text.getText());
-            }            
+            }
         });
     }
 
     private void display() {
         //Imposto dimensioni finestra
+        final  int size = 5;
         final Dimension schermo = Toolkit.getDefaultToolkit().getScreenSize();
         final int width = (int) schermo.getWidth();
         final int height = (int) schermo.getHeight();
-        System.out.println(width+" "+height);
-        frame.setSize((width/5), (height/5));
+        //System.out.println(width + " " + height); //NOPMD
+        frame.setSize(width / size, height / size);
         //non uso frame.pack() , ridimensiona la finestra male
         //frame.pack();
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(final String[] args) {
         final Controller controller = new Controller();
         final SimpleGUI gui = new SimpleGUI(controller);
         gui.display();
