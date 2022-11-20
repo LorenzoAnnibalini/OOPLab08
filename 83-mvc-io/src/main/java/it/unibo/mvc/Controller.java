@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface Controller {
 
-    void setNextStringtoPrint(final String stringa);
+    void setNextStringtoPrint(String stringa);
 
     String getNextStringtoPrint();
 
