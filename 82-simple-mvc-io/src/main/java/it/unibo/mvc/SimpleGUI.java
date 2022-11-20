@@ -17,8 +17,8 @@ import java.awt.Dimension;
  */
 public final class SimpleGUI {
 
-    private final String title = "SimpleGUI";
-    private final JFrame frame = new JFrame(title);
+    private static final String TITOLO = "SimpleGUI";
+    private final JFrame frame = new JFrame(TITOLO);
 
     private SimpleGUI(final Controller controller) {
         final JPanel p1 = new JPanel();

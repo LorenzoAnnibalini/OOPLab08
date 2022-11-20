@@ -8,11 +8,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
+//import java.awt.Dimension;
+//import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.awt.BorderLayout;
 
 
@@ -22,8 +21,8 @@ import java.awt.BorderLayout;
  */
 public final class SimpleGUIWithFileChooser {
 
-    private final String titolo = "SimpleGUIWithFileChooser";
-    private final JFrame frame = new JFrame(titolo);
+    private static final String TITOLO = "SimpleGUIWithFileChooser";
+    private final JFrame frame = new JFrame(TITOLO);
 
     private SimpleGUIWithFileChooser(final Controller controller) {
         final JPanel p1 = new JPanel();
@@ -46,39 +45,40 @@ public final class SimpleGUIWithFileChooser {
 
         save.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                     controller.saveOnFile(text.getText());
-            }});
-        
+            } });
+
         browse.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent arg0) {
-                if(chooser.showSaveDialog(chooser) == JFileChooser.APPROVE_OPTION) {
+            public void actionPerformed(final ActionEvent e) {
+                if (chooser.showSaveDialog(chooser) == JFileChooser.APPROVE_OPTION) {
                     controller.setFile(chooser.getSelectedFile());
                     browsePath.setText(controller.getPath());
                 } else {
                    JOptionPane.showMessageDialog(null, "Errore nella selezione del file");
                 }
-            }});
+            } });
 
     }
 
     public void display() {
         //imposto grandezza finestra, uso metodo pack()
-      
-        /* final Dimension schermo = Toolkit.getDefaultToolkit().getScreenSize();
+
+        /* Per utilizzare togliere commento da import
+        final Dimension schermo = Toolkit.getDefaultToolkit().getScreenSize();
         final int size = 5;
         final int width = (int) schermo.getWidth();
         final int height = (int) schermo.getHeight();
         frame.setSize(width / size, height / size); */
-       
+
         frame.pack();
         //finestra visibile da ora
         frame.setVisible(true);
     }
 
     public static void main(final String [] args) {
-        SimpleGUIWithFileChooser gui = new SimpleGUIWithFileChooser(new Controller());
+        final SimpleGUIWithFileChooser gui = new SimpleGUIWithFileChooser(new Controller());
         gui.display();
     }
 
