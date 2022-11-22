@@ -124,6 +124,3 @@ public class BadIOGUI {
        new BadIOGUI().display();
     }
 }
-//PROVA PROVA PROVA
-//ciao ciao
-//Prova da secondo pc
